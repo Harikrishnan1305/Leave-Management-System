@@ -1,0 +1,602 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+a {
+    text-decoration: none;
+}
+
+.error {
+    color: #dc3545;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.success {
+    color: #198754;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+ 
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f6f8;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.login-box h3 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 11px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #2563eb;
+    color: white;
+}
+
+.login-box p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-box a {
+    color: #2563eb;
+    font-weight: 600;
+}
+ 
+
+.employee-dashboard,
+.admin-dashboard {
+    min-height: 100vh;
+    background-color: #f4f6f8;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-header h2 {
+    margin-bottom: 5px;
+}
+
+.dashboard-header p {
+    color: #666;
+}
+
+.dashboard-content {
+    padding: 30px 40px;
+}
+
+ 
+.dashboard-actions {
+    margin-bottom: 25px;
+}
+
+.dashboard-actions button,
+.admin-title button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2563eb;
+    color: white;
+    font-size: 15px;
+}
+
+.logout-button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #dc3545;
+    color: white;
+}
+
+ 
+.admin-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+ 
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    background-color: white;
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f1f3f5;
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: #f8f9fa;
+}
+
+
+ 
+.status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status.pending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status.approved {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+.status.rejected {
+    background-color: #f8d7da;
+    color: #842029;
+}
+
+ 
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.action-buttons button {
+    padding: 7px 12px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+}
+
+.action-buttons button:first-child {
+    background-color: #2563eb;
+}
+
+.action-buttons button:last-child {
+    background-color: #dc3545;
+}
+
+.no-data {
+    padding: 30px;
+    text-align: center;
+    background-color: white;
+    border-radius: 8px;
+}
+
+/* =========================================================
+   NEW ENHANCEMENTS: Profile, Action Badges, Success Screen
+   ========================================================= */
+
+/* Register Box wider layout */
+.register-box {
+    max-width: 600px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #555;
+    margin-top: 6px;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* Header actions & Profile button */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.profile-btn {
+    padding: 10px 18px;
+    border: 1px solid #2563eb;
+    border-radius: 5px;
+    background-color: #eff6ff;
+    color: #2563eb;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.profile-btn:hover {
+    background-color: #2563eb;
+    color: white;
+}
+
+.user-designation-chip {
+    display: inline-block;
+    font-size: 13px;
+    color: #4b5563;
+    font-weight: 500;
+}
+
+.employee-desig-sub {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 2px;
+}
+
+/* Action Badges in Table (Replacing "No Action") */
+.action-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.action-badge.finalized {
+    background-color: #e0f2fe;
+    color: #0369a1;
+    border: 1px solid #bae6fd;
+}
+
+.action-badge.closed {
+    background-color: #f3f4f6;
+    color: #6b7280;
+    border: 1px solid #e5e7eb;
+}
+
+/* Modal Popup Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease;
+}
+
+.modal-content.profile-modal {
+    background-color: white;
+    width: 90%;
+    max-width: 480px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    animation: slideUp 0.25s ease;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    color: white;
+    position: relative;
+}
+
+.profile-avatar-circle {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: white;
+    color: #1e40af;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.profile-role-badge {
+    display: inline-block;
+    margin-top: 4px;
+    background-color: rgba(255, 255, 255, 0.25);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-body {
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.profile-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #f1f3f5;
+}
+
+.profile-item:last-child {
+    border-bottom: none;
+}
+
+.profile-label {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 600;
+}
+
+.profile-value {
+    font-size: 14px;
+    color: #1f2937;
+    font-weight: 500;
+    text-align: right;
+}
+
+.whatsapp-link {
+    color: #16a34a;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.whatsapp-link:hover {
+    text-decoration: underline;
+}
+
+.modal-footer {
+    padding: 14px 24px 20px;
+    display: flex;
+    justify-content: flex-end;
+    background-color: #fafafa;
+}
+
+/* Success Card for Apply Leave */
+.success-card {
+    text-align: center;
+    max-width: 480px;
+    padding: 35px 30px;
+}
+
+.success-icon-badge {
+    font-size: 52px;
+    margin-bottom: 12px;
+}
+
+.success-subtitle {
+    color: #6b7280;
+    font-size: 14px;
+    margin-top: 6px;
+    margin-bottom: 22px;
+}
+
+.submitted-details-box {
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.detail-label {
+    color: #6b7280;
+    font-weight: 600;
+}
+
+.detail-value {
+    color: #111827;
+    font-weight: 500;
+}
+
+/* Button Utilities */
+.primary-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #2563eb;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.primary-btn:hover {
+    background-color: #1d4ed8;
+}
+
+.secondary-btn {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: white;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.secondary-btn:hover {
+    background-color: #f3f4f6;
+    border-color: #9ca3af;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+
+    .dashboard-header {
+        padding: 15px 20px;
+    }
+
+    .dashboard-content {
+        padding: 20px;
+    }
+
+    .dashboard-header h2 {
+        font-size: 20px;
+    }
+
+    .login-box {
+        padding: 25px 20px;
+    }
+
+    .admin-title {
+        gap: 15px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+}
